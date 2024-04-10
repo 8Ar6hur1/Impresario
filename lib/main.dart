@@ -8,6 +8,12 @@ import 'package:impresario/screens/PreviewScreen.dart';
 import 'package:impresario/screens/SplashScreen.dart';
 
 void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent));
+
   runApp(MaterialApp(
     theme: ThemeData(
         primaryColor: const Color(0xFFF4E6FF),
@@ -22,12 +28,10 @@ void main() {
       '/PreviewScreen': (context) => const PreviewScreen(),
       '/LogicScreen': (context) => const LoginScreen(),
       '/RegistrationScreen': (context) => const RegistrationScreen(),
-      '/PrivacyAndTermsConditions': (context) => const PrivacyAndTermsConditions(),
+      '/PrivacyAndTermsConditions': (context) =>
+          const PrivacyAndTermsConditions(),
       '/CreateAccountScreen': (context) => const CreateAccountScreen(),
     },
     initialRoute: '/SplashScreen',
   ));
-
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
